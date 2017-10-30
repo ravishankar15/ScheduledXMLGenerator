@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xs:element name="TICKET">
+		<xs:annotation>
+			<xs:documentation>Booking Information</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HEADER">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EVENTHEADER">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="eventName" type="xs:string" use="required" />
+											<xs:attribute name="bookingId" type="xs:int" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BOOKINGDETAILS" type="BOOKINGDETAILStype" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BOOKINGDETAILStype">
+		<xs:sequence>
+			<xs:element name="BOOKINGS" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string"/>
+					<xs:attribute name="bookingId" type="xs:int"/>
+					<xs:attribute name="journeyDate" type="xs:dateTime"/>
+					<xs:attribute name="origin" type="xs:string"/>
+					<xs:attribute name="destination" type="xs:string"/>
+					<xs:attribute name="noOfDaysRemain" type="xs:int"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+</xs:schema>
