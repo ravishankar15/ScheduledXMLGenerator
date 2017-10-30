@@ -64,7 +64,6 @@ public class Processor {
 			executor.shutdown();
 			logger.info("Number of active Threads:" + executor.getActiveCount());
 			logger.info("All threads are posted processing request.");
-			logger.info("Task For Monitoring SERVICEs Health Ended.");
 				
 		}
 	}
